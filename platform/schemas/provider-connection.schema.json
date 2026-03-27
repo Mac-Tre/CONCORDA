@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://concorda.app/schemas/provider-connection.schema.json",
+  "title": "ProviderConnection",
+  "description": "Provider connection record for ecosystem integrations.",
+  "type": "object",
+  "required": [
+    "connection_id",
+    "tenant_id",
+    "provider",
+    "status",
+    "auth",
+    "scopes",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "connection_id": { "type": "string" },
+    "tenant_id": { "type": "string" },
+    "provider": {
+      "type": "string",
+      "enum": [
+        "google",
+        "microsoft",
+        "apple",
+        "adobe",
+        "openai",
+        "slack",
+        "zoom",
+        "dropbox",
+        "notion",
+        "custom"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "active", "revoked", "error", "expired"]
+    },
+    "auth": {
+      "type": "object",
+      "required": ["method", "token_ref", "token_expires_at"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["oauth2", "oidc", "api_key", "service_principal"]
+        },
+        "token_ref": {
+          "type": "string",
+          "description": "Reference to secure secret store entry, never raw token material."
+        },
+        "refresh_token_ref": { "type": "string" },
+        "token_expires_at": { "type": "string", "format": "date-time" },
+        "rotated_at": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "scopes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "region": { "type": "string" },
+    "last_sync_at": { "type": "string", "format": "date-time" },
+    "error": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "message": { "type": "string" },
+        "retryable": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

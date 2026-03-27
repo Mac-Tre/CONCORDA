@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://concorda.app/schemas/accordance-log.schema.json",
+  "title": "AccordanceLog",
+  "description": "Private partner-level results log with strict visibility controls.",
+  "type": "object",
+  "required": [
+    "log_id",
+    "owner_partner_id",
+    "visibility",
+    "entries",
+    "share_preferences"
+  ],
+  "properties": {
+    "log_id": { "type": "string" },
+    "owner_partner_id": { "type": "string" },
+    "visibility": {
+      "type": "string",
+      "enum": ["owner_only"]
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "entry_id",
+          "timestamp_utc",
+          "session_ref",
+          "recommendation_ref",
+          "implementation_status",
+          "self_report_outcome",
+          "confidence_delta"
+        ],
+        "properties": {
+          "entry_id": { "type": "string" },
+          "timestamp_utc": { "type": "string", "format": "date-time" },
+          "session_ref": { "type": "string" },
+          "recommendation_ref": { "type": "string" },
+          "implementation_status": {
+            "type": "string",
+            "enum": ["not_started", "partial", "implemented", "discontinued"]
+          },
+          "self_report_outcome": {
+            "type": "string",
+            "enum": ["worse", "no_change", "slight_improvement", "strong_improvement"]
+          },
+          "confidence_delta": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1,
+            "description": "How implementation outcomes changed model confidence for similar advice."
+          },
+          "notes": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "share_preferences": {
+      "type": "object",
+      "required": ["share_participation_status", "share_entry_content"],
+      "properties": {
+        "share_participation_status": { "type": "boolean", "default": false },
+        "share_entry_content": { "type": "boolean", "default": false },
+        "consent_scope": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["single_entry", "trend_only", "specific_recommendation", "full_log"]
+          },
+          "default": []
+        },
+        "consent_expires_utc": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

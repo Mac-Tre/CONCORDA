@@ -1,0 +1,15 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Concorda icon">
+  <rect x="64" y="64" width="896" height="896" rx="220" fill="#24364C"/>
+
+  <!-- Left speech form (cool/calm) -->
+  <path d="M470 275c-132 0-239 99-239 222 0 84 51 157 128 196l-10 96 92-66c10 1 19 2 29 2 132 0 239-99 239-222S602 275 470 275z"
+        fill="#5FA9A2"/>
+
+  <!-- Right speech form (warm/engaged) -->
+  <path d="M554 309c132 0 239 99 239 222 0 84-51 157-128 196l10 96-92-66c-10 1-19 2-29 2-132 0-239-99-239-222s107-222 239-222z"
+        fill="#EE7B6A" fill-opacity="0.92"/>
+
+  <!-- Shared-ground bridge/heart cue -->
+  <path d="M512 430c-44-49-121-53-170-9-53 48-56 130-8 182l178 173 178-173c48-52 45-134-8-182-49-44-126-40-170 9z"
+        fill="#F7F4EE" fill-opacity="0.22"/>
+</svg>

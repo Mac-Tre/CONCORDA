@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://concorda.app/schemas/session-analysis.schema.json",
+  "title": "SessionAnalysis",
+  "description": "Aggregated analytics and coaching decisions for one argument session.",
+  "type": "object",
+  "required": [
+    "session_id",
+    "participants",
+    "summary",
+    "scores",
+    "behavioral_patterns",
+    "risk_assessment",
+    "recommendations",
+    "recommendation_adherence",
+    "teaching_habit",
+    "iap_signals"
+  ],
+  "properties": {
+    "session_id": { "type": "string" },
+    "participants": {
+      "type": "object",
+      "required": ["partner_a", "partner_b"],
+      "properties": {
+        "partner_a": { "type": "string" },
+        "partner_b": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": ["core_issue", "common_ground", "open_questions"],
+      "properties": {
+        "core_issue": { "type": "string" },
+        "common_ground": { "type": "array", "items": { "type": "string" } },
+        "open_questions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "listening",
+        "accountability",
+        "clarity",
+        "mutual_respect",
+        "long_term_alignment",
+        "repair_readiness",
+        "evidence_grounding"
+      ],
+      "properties": {
+        "listening": { "type": "number", "minimum": 0, "maximum": 100 },
+        "accountability": { "type": "number", "minimum": 0, "maximum": 100 },
+        "clarity": { "type": "number", "minimum": 0, "maximum": 100 },
+        "mutual_respect": { "type": "number", "minimum": 0, "maximum": 100 },
+        "long_term_alignment": { "type": "number", "minimum": 0, "maximum": 100 },
+        "repair_readiness": { "type": "number", "minimum": 0, "maximum": 100 },
+        "evidence_grounding": { "type": "number", "minimum": 0, "maximum": 100 },
+        "relationship_health_score": { "type": "number", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "behavioral_patterns": {
+      "type": "object",
+      "required": [
+        "initiator_distribution",
+        "talk_time_distribution",
+        "interruption_distribution",
+        "repair_attempts",
+        "defensiveness_markers"
+      ],
+      "properties": {
+        "initiator_distribution": {
+          "type": "object",
+          "required": ["partner_a", "partner_b"],
+          "properties": {
+            "partner_a": { "type": "integer", "minimum": 0 },
+            "partner_b": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "talk_time_distribution": {
+          "type": "object",
+          "required": ["partner_a_pct", "partner_b_pct"],
+          "properties": {
+            "partner_a_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+            "partner_b_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+          }
+        },
+        "interruption_distribution": {
+          "type": "object",
+          "required": ["partner_a", "partner_b"],
+          "properties": {
+            "partner_a": { "type": "integer", "minimum": 0 },
+            "partner_b": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "repair_attempts": {
+          "type": "object",
+          "required": ["partner_a", "partner_b", "accepted_ratio"],
+          "properties": {
+            "partner_a": { "type": "integer", "minimum": 0 },
+            "partner_b": { "type": "integer", "minimum": 0 },
+            "accepted_ratio": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "defensiveness_markers": {
+          "type": "object",
+          "required": ["partner_a", "partner_b"],
+          "properties": {
+            "partner_a": { "type": "integer", "minimum": 0 },
+            "partner_b": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "risk_assessment": {
+      "type": "object",
+      "required": ["risk_level", "flags", "safety_mode_triggered"],
+      "properties": {
+        "risk_level": {
+          "type": "string",
+          "enum": ["none", "low", "moderate", "high", "critical"]
+        },
+        "flags": { "type": "array", "items": { "type": "string" } },
+        "safety_mode_triggered": { "type": "boolean" }
+      }
+    },
+    "recommendations": {
+      "type": "object",
+      "required": ["immediate_steps", "reflection_prompts", "next_session_goal"],
+      "properties": {
+        "immediate_steps": { "type": "array", "items": { "type": "string" } },
+        "reflection_prompts": { "type": "array", "items": { "type": "string" } },
+        "next_session_goal": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "recommendation_adherence": {
+      "type": "object",
+      "required": ["implemented_count", "not_implemented_count", "adherence_rate"],
+      "properties": {
+        "implemented_count": { "type": "integer", "minimum": 0 },
+        "not_implemented_count": { "type": "integer", "minimum": 0 },
+        "adherence_rate": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "teaching_habit": {
+      "type": "string",
+      "enum": ["seek_first_to_understand_then_be_understood"]
+    },
+    "iap_signals": {
+      "description": "Signals used for feature fit and premium offer timing, not for coercive monetization.",
+      "type": "object",
+      "required": [
+        "high_conflict_frequency",
+        "needs_guided_templates",
+        "needs_repair_plan_depth",
+        "analytics_engagement_level"
+      ],
+      "properties": {
+        "high_conflict_frequency": { "type": "boolean" },
+        "needs_guided_templates": { "type": "boolean" },
+        "needs_repair_plan_depth": { "type": "boolean" },
+        "analytics_engagement_level": {
+          "type": "string",
+          "enum": ["low", "medium", "high"]
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

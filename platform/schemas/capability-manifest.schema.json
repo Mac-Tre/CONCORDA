@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://concorda.app/schemas/capability-manifest.schema.json",
+  "title": "CapabilityManifest",
+  "description": "Runtime capability declaration for foundational GPT-like behaviors and integrations.",
+  "type": "object",
+  "required": ["manifest_version", "runtime", "capabilities", "tools", "safety"],
+  "properties": {
+    "manifest_version": { "type": "string" },
+    "runtime": {
+      "type": "object",
+      "required": ["model_family", "supports_tool_calls", "supports_multimodal"],
+      "properties": {
+        "model_family": { "type": "string" },
+        "supports_tool_calls": { "type": "boolean" },
+        "supports_multimodal": { "type": "boolean" },
+        "supports_streaming": { "type": "boolean" },
+        "supports_reasoning": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "capabilities": {
+      "type": "object",
+      "required": [
+        "summarization",
+        "classification",
+        "entity_extraction",
+        "sentiment_inference",
+        "safety_risk_detection",
+        "recommendation_generation"
+      ],
+      "properties": {
+        "summarization": { "type": "boolean" },
+        "classification": { "type": "boolean" },
+        "entity_extraction": { "type": "boolean" },
+        "sentiment_inference": { "type": "boolean" },
+        "safety_risk_detection": { "type": "boolean" },
+        "recommendation_generation": { "type": "boolean" },
+        "translation": { "type": "boolean" },
+        "speech_to_text": { "type": "boolean" },
+        "vision_understanding": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "enabled"],
+        "properties": {
+          "name": { "type": "string" },
+          "enabled": { "type": "boolean" },
+          "provider": { "type": "string" },
+          "permissions": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "safety": {
+      "type": "object",
+      "required": ["policy_version", "confidentiality_enforced"],
+      "properties": {
+        "policy_version": { "type": "string" },
+        "confidentiality_enforced": { "type": "boolean" },
+        "abuse_escalation_enabled": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

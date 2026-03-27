@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://concorda.app/schemas/private-session.schema.json",
+  "title": "PrivateSession",
+  "description": "IAP one-on-one session with confidentiality controls.",
+  "type": "object",
+  "required": [
+    "private_session_id",
+    "owner_partner_id",
+    "membership_tier",
+    "teaching_habit",
+    "confidentiality",
+    "recommendations"
+  ],
+  "properties": {
+    "private_session_id": { "type": "string" },
+    "owner_partner_id": { "type": "string" },
+    "membership_tier": {
+      "type": "string",
+      "enum": ["core", "accordance_plus", "seek_first_membership"]
+    },
+    "teaching_habit": {
+      "type": "string",
+      "enum": ["seek_first_to_understand_then_be_understood"]
+    },
+    "confidentiality": {
+      "type": "object",
+      "required": ["classification", "disclosure_policy"],
+      "properties": {
+        "classification": {
+          "type": "string",
+          "enum": ["private_partner_a", "private_partner_b"]
+        },
+        "disclosure_policy": {
+          "type": "string",
+          "enum": ["deny_by_default"]
+        },
+        "explicit_shareable_items": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["recommendation_id", "text", "confidence", "implementation_tracking"],
+        "properties": {
+          "recommendation_id": { "type": "string" },
+          "text": { "type": "string" },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "implementation_tracking": { "type": "boolean", "const": true }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

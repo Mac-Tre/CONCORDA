@@ -1,0 +1,7 @@
+<svg width="1600" height="480" viewBox="0 0 1600 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Concorda horizontal lockup">
+  <rect x="24" y="24" width="432" height="432" rx="108" fill="#24364C"/>
+  <path d="M224 124c-73 0-132 55-132 124 0 47 28 88 71 110l-6 54 51-37c5 1 11 1 16 1 73 0 132-55 132-124s-59-124-132-124z" fill="#5FA9A2"/>
+  <path d="M270 143c73 0 132 55 132 124 0 47-28 88-71 110l6 54-51-37c-5 1-11 1-16 1-73 0-132-55-132-124s59-124 132-124z" fill="#EE7B6A" fill-opacity="0.92"/>
+
+  <text x="520" y="274" fill="#2D3742" font-family="Avenir Next, Nunito, Quicksand, sans-serif" font-size="164" letter-spacing="6">concorda</text>
+</svg>
