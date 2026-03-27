@@ -4,6 +4,14 @@
     "partner_a": "Alex",
     "partner_b": "Riley"
   },
+  "capture_context": {
+    "mode": "active_facilitation",
+    "both_partners_participated": true,
+    "partner_attested": {
+      "partner_a": true,
+      "partner_b": true
+    }
+  },
   "summary": {
     "core_issue": "Uneven planning and follow-through for shared household tasks.",
     "common_ground": [
@@ -47,6 +55,12 @@
       "partner_b": 3
     }
   },
+  "evidence_validation": {
+    "shared_facts_verified": 5,
+    "unilateral_claims_count": 1,
+    "confidence_limited": false,
+    "limitations": []
+  },
   "risk_assessment": {
     "risk_level": "low",
     "flags": [],
@@ -69,7 +83,7 @@
     "not_implemented_count": 1,
     "adherence_rate": 0.8
   },
-  "teaching_habit": "seek_first_to_understand_then_be_understood",
+  "teaching_habit": "seek_mutual_benefit_and_shared_understanding",
   "iap_signals": {
     "high_conflict_frequency": true,
     "needs_guided_templates": true,

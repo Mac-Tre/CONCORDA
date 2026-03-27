@@ -7,9 +7,11 @@
   "required": [
     "session_id",
     "participants",
+    "capture_context",
     "summary",
     "scores",
     "behavioral_patterns",
+    "evidence_validation",
     "risk_assessment",
     "recommendations",
     "recommendation_adherence",
@@ -24,6 +26,27 @@
       "properties": {
         "partner_a": { "type": "string" },
         "partner_b": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "capture_context": {
+      "type": "object",
+      "required": ["mode", "both_partners_participated", "partner_attested"],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["passive_record_playback", "active_facilitation", "text_only"]
+        },
+        "both_partners_participated": { "type": "boolean" },
+        "partner_attested": {
+          "type": "object",
+          "required": ["partner_a", "partner_b"],
+          "properties": {
+            "partner_a": { "type": "boolean" },
+            "partner_b": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        }
       },
       "additionalProperties": false
     },
@@ -111,6 +134,23 @@
         }
       }
     },
+    "evidence_validation": {
+      "type": "object",
+      "required": ["shared_facts_verified", "unilateral_claims_count", "confidence_limited"],
+      "properties": {
+        "shared_facts_verified": { "type": "integer", "minimum": 0 },
+        "unilateral_claims_count": { "type": "integer", "minimum": 0 },
+        "confidence_limited": { "type": "boolean" },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["single_sided_account", "no_partner_attestation", "no_recorded_audio", "partial_context"]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "risk_assessment": {
       "type": "object",
       "required": ["risk_level", "flags", "safety_mode_triggered"],
@@ -144,7 +184,7 @@
     },
     "teaching_habit": {
       "type": "string",
-      "enum": ["seek_first_to_understand_then_be_understood"]
+      "enum": ["seek_mutual_benefit_and_shared_understanding"]
     },
     "iap_signals": {
       "description": "Signals used for feature fit and premium offer timing, not for coercive monetization.",

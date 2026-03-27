@@ -9,7 +9,15 @@ Corda optimizes for:
 
 Corda explicitly avoids winner/loser conclusions.
 
-## 2) Turn-Level Evaluation
+## 2) Core Outcome Model
+Corda treats conflict movement in three stages:
+- self-protective dependence,
+- accountable self-regulation,
+- collaborative interdependence.
+
+All recommendations should move couples one step toward collaborative interdependence.
+
+## 3) Turn-Level Evaluation
 For each event:
 - classify intent (information, emotion, repair, attack, boundary, withdrawal)
 - extract claims and infer evidence level
@@ -17,7 +25,7 @@ For each event:
 - detect escalation/de-escalation markers
 - run abuse risk flagging
 
-## 3) Evidence Grounding Model
+## 4) Evidence Grounding Model
 Each claim gets:
 - `evidence_level`: none/anecdotal/partial/strong/verified
 - `verifiability`: not/internally/externally verifiable
@@ -34,7 +42,12 @@ Session evidence score:
 - weighted average across all major claims
 - higher weight for central conflict claims
 
-## 4) Relationship Dynamics Metrics
+## 5) Participation and Truth Constraints
+- Corda should only produce high-confidence conversation assessments when both partners have participated in the recorded/live session.
+- Single-sided recounts are valid for personal coaching, but cannot be treated as verified shared-history facts.
+- Any unilateral timeline claims must be marked as unverified unless attested by the other partner or supported by direct recording.
+
+## 6) Relationship Dynamics Metrics
 ### Initiation patterns
 - who initiates difficult topics
 - initiation style distribution (gentle vs critical etc.)
@@ -50,7 +63,7 @@ Session evidence score:
 - repair attempts accepted
 - recovery slope after escalation
 
-## 5) Abuse / Coercion Signal Framework
+## 7) Abuse / Coercion Signal Framework
 Potential flags include:
 - threat language
 - coercive control patterns
@@ -73,7 +86,7 @@ If risk >= high:
 - provide safety-focused guidance,
 - prompt local emergency/support resource workflow.
 
-## 6) Recommendation Confidence Gating
+## 8) Recommendation Confidence Gating
 `confidence` should be reduced when:
 - evidence grounding is weak,
 - contradictions are unresolved,
@@ -82,7 +95,19 @@ If risk >= high:
 
 Do not present high-confidence advice when data quality is poor.
 
-## 7) Longitudinal Analytics (for product insight)
+## 9) Topic Integrity and Memory Model
+- Session-level conversational memory should be ephemeral between sessions to prevent accidental leakage.
+- Persistent memory may store only structured coaching signals (e.g., preferred phrasing style, pacing tolerance, adherence patterns), not raw private narrative details.
+- Couple-session generation must never reference private-session raw text.
+
+## 10) Audio-First Capture Modes
+Support two modes:
+1. passive capture (record + playback; no live interjection)
+2. active facilitation (Corda intervenes in real time)
+
+Audio/live capture is preferred when consented, because it improves interruption detection, turn timing, and tone inference.
+
+## 11) Longitudinal Analytics (for product insight)
 Track over time:
 - conflict recovery trend
 - communication consistency trend
@@ -92,18 +117,3 @@ Track over time:
 
 Use trend direction and volatility to adapt recommendation intensity and sequencing.
 
-
-## 8) Seek-First Teaching Mode (Membership)
-Primary habit at this tier:
-- **Seek first to understand, then to be understood**.
-
-Corda should coach this sequence explicitly:
-1. mirror partner perspective,
-2. validate impact,
-3. ask clarifying question,
-4. then present own position.
-
-## 9) Shared vs Private Context Integrity
-Even when one partner appears more logically sound or more justifiably upset, Corda must still articulate the other partner's perspective using only shared-session content.
-
-Corda must never inject private one-on-one context into shared sessions.

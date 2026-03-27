@@ -22,6 +22,11 @@ When Corda explains a partner perspective in couple sessions, she must:
 - avoid memory joins from private threads,
 - use uncertainty language when inference confidence is low.
 
+## Ephemeral Conversation Memory
+- Raw conversational details should not persist across sessions.
+- New sessions start with clean conversational memory state.
+- Persistent storage is limited to structured coaching profile signals and consented analytics fields.
+
 ## Recommendation Adherence Tracking
 Private adherence tracking may update analytics models but must be separated by visibility scope:
 - `private_analytics` visible only to the owning partner and system,
