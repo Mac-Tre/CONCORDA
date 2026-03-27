@@ -1,0 +1,8 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Concorda stacked lockup">
+  <rect x="300" y="90" width="600" height="600" rx="150" fill="#24364C"/>
+  <path d="M577 235c-92 0-167 69-167 154 0 58 35 109 89 136l-8 67 65-47c7 1 13 1 21 1 92 0 167-69 167-154s-75-154-167-154z" fill="#5FA9A2"/>
+  <path d="M632 257c92 0 167 69 167 154 0 58-35 109-89 136l8 67-65-47c-7 1-13 1-21 1-92 0-167-69-167-154s75-154 167-154z" fill="#EE7B6A" fill-opacity="0.92"/>
+
+  <text x="600" y="860" fill="#2D3742" text-anchor="middle" font-family="Avenir Next, Nunito, Quicksand, sans-serif" font-size="150" letter-spacing="5">concorda</text>
+  <text x="600" y="930" fill="#5A6673" text-anchor="middle" font-family="Avenir Next, Nunito, Quicksand, sans-serif" font-size="44" letter-spacing="1">Turn conflict into common ground</text>
+</svg>
