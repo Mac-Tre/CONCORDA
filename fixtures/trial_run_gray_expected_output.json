@@ -1,0 +1,75 @@
+{
+  "conflict_classification": {
+    "primary_conflict_type": "transparency_versus_amnesty",
+    "secondary_conflict_types": [
+      "trust_disclosure_conflict",
+      "answer_sufficiency_dispute",
+      "decision_relevant_facts"
+    ],
+    "escalation_level": "moderate",
+    "safety_flags": [],
+    "repair_coaching_allowed": true,
+    "recommended_module_ids": [
+      "trust_disclosure_v1",
+      "reset_or_repair_v1",
+      "answer_sufficiency_v1",
+      "constructive_challenge_v1",
+      "rose_mirror_report_v1",
+      "memory_policy_v1"
+    ],
+    "memory_relevance": "medium",
+    "brief_reasoning": "The artifact shows a transparency request, a reset request, and a dispute over whether an earlier answer is sufficient. No safety crisis indicators are present. This is not a finding about the underlying facts."
+  },
+  "rose_mirror_report": {
+    "report_id": "report_trial_run_gray_001",
+    "participant_id": "participant_a",
+    "conflict_classification": {
+      "primary_conflict_type": "transparency_versus_amnesty",
+      "secondary_conflict_types": ["trust_disclosure_conflict", "answer_sufficiency_dispute", "decision_relevant_facts"],
+      "escalation_level": "moderate",
+      "safety_flags": [],
+      "repair_coaching_allowed": true,
+      "recommended_module_ids": ["trust_disclosure_v1", "reset_or_repair_v1", "answer_sufficiency_v1"],
+      "memory_relevance": "medium",
+      "brief_reasoning": "The exchange centers on bounded disclosure versus moving forward."
+    },
+    "private_read": "You are trying to protect trust by asking for consistency, not by demanding unlimited confession.",
+    "what_you_are_protecting": "You are protecting your ability to move forward without pretending an unresolved contradiction is resolved.",
+    "strongest_point": "Your strongest point is narrowing the concern to one answerable question.",
+    "growth_edge": "Your growth edge is to stop reopening the entire history when the real need is one decision-relevant answer.",
+    "constructive_challenge": {
+      "valid_concern": "It is reasonable to want clarity when an explanation appears to shift.",
+      "self_defeating_behavior": "Broadly framing the reset as skipped accountability can make the other participant defend the reset instead of answering the precise question.",
+      "conversation_consequence": "The exchange risks becoming a debate about whether questioning is fair rather than a direct answer to the bounded question.",
+      "stronger_replacement_behavior": "State one missing fact or contradiction, ask for one direct answer, then pause the review.",
+      "practice_assignment": "Before sending a follow-up, write the missing fact in one sentence and remove every sentence that asks for proof of character."
+    },
+    "three_bucket_triage": {
+      "known": ["A prior answer was given", "Participant B is requesting a reset", "Participant A wants consistency"],
+      "needs_one_answer": ["Which part of the earlier answer does Participant B stand by today?"],
+      "not_resolved_by_more_interrogation": ["Whether the relationship can feel safe without changed future conduct"]
+    },
+    "covey_connection": "Begin with the end in mind: the goal is a usable agreement for repair, not winning a transcript debate.",
+    "next_best_message": "I want a reset too, but I need one bounded answer first: which part of your earlier explanation do you stand by today? After that, I will pause the review and we can discuss what changes going forward.",
+    "daily_practice": "Use One Ask / One Answer once per day: one precise question, one direct answer, then a pause.",
+    "memory_recommendations": [
+      {
+        "memory_zone": "private_participant_a",
+        "proposed_memory": "Participant A benefits from converting broad transparency concerns into one decision-relevant question before continuing a conflict conversation.",
+        "rationale": "This supports future coaching without storing raw accusations or sensitive details.",
+        "sensitivity_level": "medium",
+        "requires_consent": true,
+        "approved": false,
+        "rejected": false,
+        "created_at": "2026-06-21T00:00:00Z"
+      }
+    ],
+    "disclaimers": [
+      "This report does not determine the truth of disputed events.",
+      "This report is not therapy, diagnosis, or emergency support.",
+      "Private coaching is for the selected participant only."
+    ],
+    "bottom_line": "Ask one precise question, accept one direct answer, and make the next decision based on present repair behavior.",
+    "generated_at": "2026-06-21T00:00:00Z"
+  }
+}
