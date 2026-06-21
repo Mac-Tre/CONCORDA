@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://concorda.app/schemas/memory_update.schema.json",
+  "title": "Memory Update Proposal",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["memory_zone", "proposed_memory", "rationale", "sensitivity_level", "requires_consent", "approved", "rejected", "created_at"],
+  "properties": {
+    "memory_zone": { "type": "string", "enum": ["private_participant_a", "private_participant_b", "shared", "prohibited"] },
+    "proposed_memory": { "type": "string" },
+    "rationale": { "type": "string" },
+    "sensitivity_level": { "type": "string", "enum": ["low", "medium", "high", "prohibited"] },
+    "requires_consent": { "type": "boolean", "const": true },
+    "approved": { "type": "boolean" },
+    "rejected": { "type": "boolean" },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

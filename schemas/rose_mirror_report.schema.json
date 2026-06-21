@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://concorda.app/schemas/rose_mirror_report.schema.json",
+  "title": "Rose Mirror Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["report_id", "participant_id", "conflict_classification", "private_read", "strongest_point", "growth_edge", "constructive_challenge", "covey_connection", "next_best_message", "daily_practice", "memory_recommendations", "disclaimers", "generated_at"],
+  "properties": {
+    "report_id": { "type": "string" },
+    "participant_id": { "type": "string" },
+    "conflict_classification": { "$ref": "conflict_classification.schema.json" },
+    "private_read": { "type": "string" },
+    "what_you_are_protecting": { "type": "string" },
+    "strongest_point": { "type": "string" },
+    "growth_edge": { "type": "string" },
+    "constructive_challenge": { "type": "object", "additionalProperties": false, "required": ["valid_concern", "self_defeating_behavior", "conversation_consequence", "stronger_replacement_behavior", "practice_assignment"], "properties": { "valid_concern": { "type": "string" }, "self_defeating_behavior": { "type": "string" }, "conversation_consequence": { "type": "string" }, "stronger_replacement_behavior": { "type": "string" }, "practice_assignment": { "type": "string" } } },
+    "three_bucket_triage": { "type": "object", "additionalProperties": false, "required": ["known", "needs_one_answer", "not_resolved_by_more_interrogation"], "properties": { "known": { "type": "array", "items": { "type": "string" } }, "needs_one_answer": { "type": "array", "items": { "type": "string" } }, "not_resolved_by_more_interrogation": { "type": "array", "items": { "type": "string" } } } },
+    "covey_connection": { "type": "string" },
+    "next_best_message": { "type": "string" },
+    "daily_practice": { "type": "string" },
+    "memory_recommendations": { "type": "array", "items": { "$ref": "memory_update.schema.json" } },
+    "disclaimers": { "type": "array", "items": { "type": "string" } },
+    "bottom_line": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" }
+  }
+}

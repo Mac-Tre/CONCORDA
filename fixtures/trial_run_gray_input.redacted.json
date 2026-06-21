@@ -1,0 +1,22 @@
+{
+  "artifact_id": "artifact_trial_run_gray_redacted_001",
+  "artifact_type": "redacted_fixture",
+  "participants": [
+    { "participant_id": "participant_a", "display_label": "Participant A", "role": "requesting_participant" },
+    { "participant_id": "participant_b", "display_label": "Participant B", "role": "other_participant" }
+  ],
+  "messages": [
+    { "message_id": "m001", "participant_id": "participant_a", "speaker_label": "Participant A", "text": "I am not asking for every detail. I need one clear answer about whether the earlier explanation changed since we last talked.", "sent_at": null, "sequence": 1, "attachments": [], "confidence": 1, "raw_source_ref": "synthetic_line_1" },
+    { "message_id": "m002", "participant_id": "participant_b", "speaker_label": "Participant B", "text": "I already answered that last week. I want us to stop replaying this and start fresh.", "sent_at": null, "sequence": 2, "attachments": [], "confidence": 1, "raw_source_ref": "synthetic_line_2" },
+    { "message_id": "m003", "participant_id": "participant_a", "speaker_label": "Participant A", "text": "A fresh start sounds like skipping accountability if the answer keeps changing.", "sent_at": null, "sequence": 3, "attachments": [], "confidence": 1, "raw_source_ref": "synthetic_line_3" },
+    { "message_id": "m004", "participant_id": "participant_b", "speaker_label": "Participant B", "text": "I can answer one specific question, but I am not doing another all-night review of the same topic.", "sent_at": null, "sequence": 4, "attachments": [], "confidence": 1, "raw_source_ref": "synthetic_line_4" },
+    { "message_id": "m005", "participant_id": "participant_a", "speaker_label": "Participant A", "text": "Then my question is: what exact part of your earlier answer do you stand by today?", "sent_at": null, "sequence": 5, "attachments": [], "confidence": 1, "raw_source_ref": "synthetic_line_5" }
+  ],
+  "metadata": {
+    "fixture_note": "Synthetic redacted fixture; no real names, phone numbers, screenshots, or intimate explicit details.",
+    "safety_crisis_expected": false
+  },
+  "redaction_status": "synthetic_redacted",
+  "source_type": "synthetic_fixture",
+  "created_at": "2026-06-21T00:00:00Z"
+}
