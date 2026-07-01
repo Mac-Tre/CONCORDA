@@ -92,3 +92,37 @@ Track over time:
 
 Use trend direction and volatility to adapt recommendation intensity and sequencing.
 
+
+## 8) Couples Couch Coaching Gate
+For Couples Couch sessions, Corda must complete safety screening before repair coaching. Screen for threats, coercive control, fear, stalking, intimidation, physical violence, self-harm, forced disclosure, and isolation.
+
+If any safety marker indicates high or critical risk:
+- do not encourage vulnerability, shared sessions, or deeper disclosure,
+- do not create a couples repair plan,
+- recommend safety-first outside support,
+- keep memory recommendations minimal and consent-gated.
+
+When safety mode is not triggered, classify one primary conflict type and up to three secondary types from the Couples Couch taxonomy, then narrow the next move to the repair sequence: regulate, name the issue, ask one question, give one direct answer, reflect what was heard, identify one repair action, and pause.
+
+## 9) Private Coaching Evaluation
+Private coaching should be evaluated for channel separation:
+- Participant A output contains only Participant A's coaching.
+- Participant B output contains only Participant B's coaching.
+- Private memories are never copied into shared memory.
+- Accusations are not stored as facts.
+- Sensitive sexual, medical, legal, financial, or third-party allegations are not stored unless explicitly requested by the participant.
+
+## 10) Reset and Disclosure Parity Evaluation
+Activate the reset, repair, and mutual disclosure parity module when transcripts include phrases such as turning over a new leaf, moving forward, fresh start, transparency, confess, tell me the truth, secrets, not rehashing trauma, reciprocal misconduct claims, inability to trust, or needing to know what happened.
+
+Evaluate whether the exchange reflects:
+- a legitimate reset,
+- avoidant amnesty,
+- a confession trap,
+- a mutual disclosure impasse,
+- trauma reactivation,
+- or a decision-relevant facts conflict.
+
+Coaching must keep disclosure bounded to decision-relevant facts: whether conduct happened, general timeframe, whether it is ongoing, current contact, impact on money/health/parenting/housing/safety/legal exposure, violated agreements, future boundaries, and verifiable repair actions. Do not encourage graphic, comparative, punitive, or already-answered details unless new material evidence changes the issue.
+
+When both partners have trust injuries, evaluate mutuality by asking privately whether each participant is requesting a category of transparency they have also provided, whether the request is for repair rather than leverage, and whether they are willing to answer the same category of question.

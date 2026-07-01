@@ -2,36 +2,65 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://concorda.app/schemas/session-analysis.schema.json",
   "title": "SessionAnalysis",
-  "description": "Aggregated analytics and coaching decisions for one argument session.",
+  "description": "Aggregated analytics, safety gating, private coaching decisions, and memory recommendations for one argument session.",
   "type": "object",
   "required": [
     "session_id",
     "participants",
-    "summary",
-    "scores",
-    "behavioral_patterns",
+    "inputs",
+    "conflict_classification",
+    "loop_summary",
+    "private_coaching",
+    "covey_habit_map",
+    "daily_exercises",
+    "memory_update_recommendations",
     "risk_assessment",
     "recommendations",
     "iap_signals"
   ],
   "properties": {
-    "session_id": { "type": "string" },
+    "session_id": {
+      "type": "string"
+    },
     "participants": {
       "type": "object",
-      "required": ["partner_a", "partner_b"],
+      "required": [
+        "partner_a",
+        "partner_b"
+      ],
       "properties": {
-        "partner_a": { "type": "string" },
-        "partner_b": { "type": "string" }
+        "partner_a": {
+          "type": "string"
+        },
+        "partner_b": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     },
     "summary": {
       "type": "object",
-      "required": ["core_issue", "common_ground", "open_questions"],
+      "required": [
+        "core_issue",
+        "common_ground",
+        "open_questions"
+      ],
       "properties": {
-        "core_issue": { "type": "string" },
-        "common_ground": { "type": "array", "items": { "type": "string" } },
-        "open_questions": { "type": "array", "items": { "type": "string" } }
+        "core_issue": {
+          "type": "string"
+        },
+        "common_ground": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "open_questions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
     "scores": {
@@ -46,14 +75,46 @@
         "evidence_grounding"
       ],
       "properties": {
-        "listening": { "type": "number", "minimum": 0, "maximum": 100 },
-        "accountability": { "type": "number", "minimum": 0, "maximum": 100 },
-        "clarity": { "type": "number", "minimum": 0, "maximum": 100 },
-        "mutual_respect": { "type": "number", "minimum": 0, "maximum": 100 },
-        "long_term_alignment": { "type": "number", "minimum": 0, "maximum": 100 },
-        "repair_readiness": { "type": "number", "minimum": 0, "maximum": 100 },
-        "evidence_grounding": { "type": "number", "minimum": 0, "maximum": 100 },
-        "relationship_health_score": { "type": "number", "minimum": 0, "maximum": 100 }
+        "listening": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "accountability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "clarity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "mutual_respect": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "long_term_alignment": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "repair_readiness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "evidence_grounding": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "relationship_health_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
       }
     },
     "behavioral_patterns": {
@@ -68,67 +129,156 @@
       "properties": {
         "initiator_distribution": {
           "type": "object",
-          "required": ["partner_a", "partner_b"],
+          "required": [
+            "partner_a",
+            "partner_b"
+          ],
           "properties": {
-            "partner_a": { "type": "integer", "minimum": 0 },
-            "partner_b": { "type": "integer", "minimum": 0 }
+            "partner_a": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "partner_b": {
+              "type": "integer",
+              "minimum": 0
+            }
           }
         },
         "talk_time_distribution": {
           "type": "object",
-          "required": ["partner_a_pct", "partner_b_pct"],
+          "required": [
+            "partner_a_pct",
+            "partner_b_pct"
+          ],
           "properties": {
-            "partner_a_pct": { "type": "number", "minimum": 0, "maximum": 100 },
-            "partner_b_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+            "partner_a_pct": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "partner_b_pct": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            }
           }
         },
         "interruption_distribution": {
           "type": "object",
-          "required": ["partner_a", "partner_b"],
+          "required": [
+            "partner_a",
+            "partner_b"
+          ],
           "properties": {
-            "partner_a": { "type": "integer", "minimum": 0 },
-            "partner_b": { "type": "integer", "minimum": 0 }
+            "partner_a": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "partner_b": {
+              "type": "integer",
+              "minimum": 0
+            }
           }
         },
         "repair_attempts": {
           "type": "object",
-          "required": ["partner_a", "partner_b", "accepted_ratio"],
+          "required": [
+            "partner_a",
+            "partner_b",
+            "accepted_ratio"
+          ],
           "properties": {
-            "partner_a": { "type": "integer", "minimum": 0 },
-            "partner_b": { "type": "integer", "minimum": 0 },
-            "accepted_ratio": { "type": "number", "minimum": 0, "maximum": 1 }
+            "partner_a": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "partner_b": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "accepted_ratio": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
           }
         },
         "defensiveness_markers": {
           "type": "object",
-          "required": ["partner_a", "partner_b"],
+          "required": [
+            "partner_a",
+            "partner_b"
+          ],
           "properties": {
-            "partner_a": { "type": "integer", "minimum": 0 },
-            "partner_b": { "type": "integer", "minimum": 0 }
+            "partner_a": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "partner_b": {
+              "type": "integer",
+              "minimum": 0
+            }
           }
         }
       }
     },
     "risk_assessment": {
       "type": "object",
-      "required": ["risk_level", "flags", "safety_mode_triggered"],
+      "required": [
+        "risk_level",
+        "flags",
+        "safety_mode_triggered"
+      ],
       "properties": {
         "risk_level": {
           "type": "string",
-          "enum": ["none", "low", "moderate", "high", "critical"]
+          "enum": [
+            "none",
+            "low",
+            "moderate",
+            "high",
+            "critical"
+          ]
         },
-        "flags": { "type": "array", "items": { "type": "string" } },
-        "safety_mode_triggered": { "type": "boolean" }
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "safety_mode_triggered": {
+          "type": "boolean"
+        }
       }
     },
     "recommendations": {
       "type": "object",
-      "required": ["immediate_steps", "reflection_prompts", "next_session_goal"],
+      "required": [
+        "immediate_steps",
+        "reflection_prompts",
+        "next_session_goal"
+      ],
       "properties": {
-        "immediate_steps": { "type": "array", "items": { "type": "string" } },
-        "reflection_prompts": { "type": "array", "items": { "type": "string" } },
-        "next_session_goal": { "type": "string" },
-        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        "immediate_steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reflection_prompts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "next_session_goal": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
       }
     },
     "iap_signals": {
@@ -141,14 +291,582 @@
         "analytics_engagement_level"
       ],
       "properties": {
-        "high_conflict_frequency": { "type": "boolean" },
-        "needs_guided_templates": { "type": "boolean" },
-        "needs_repair_plan_depth": { "type": "boolean" },
+        "high_conflict_frequency": {
+          "type": "boolean"
+        },
+        "needs_guided_templates": {
+          "type": "boolean"
+        },
+        "needs_repair_plan_depth": {
+          "type": "boolean"
+        },
         "analytics_engagement_level": {
           "type": "string",
-          "enum": ["low", "medium", "high"]
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
         }
       }
+    },
+    "inputs": {
+      "type": "object",
+      "required": [
+        "transcript",
+        "speaker_labels"
+      ],
+      "properties": {
+        "transcript": {
+          "type": "string"
+        },
+        "speaker_labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "relationship_context": {
+          "type": "string"
+        },
+        "private_memory_a": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "private_memory_b": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "shared_memory": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "safety_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "conflict_classification": {
+      "type": "object",
+      "required": [
+        "primary_type",
+        "secondary_types",
+        "observable_basis"
+      ],
+      "properties": {
+        "primary_type": {
+          "type": "string",
+          "enum": [
+            "Trust / disclosure conflict",
+            "Pursuer / defender loop",
+            "Accountability impasse",
+            "Repair after betrayal or perceived betrayal",
+            "Power / agency conflict",
+            "Future versus past conflict",
+            "Definition conflict",
+            "Attention / availability conflict",
+            "Money / labor / ambition conflict",
+            "Household / logistics conflict",
+            "Parenting / family system conflict",
+            "Boundary / third-party conflict",
+            "Meta-communication conflict",
+            "Chronic resentment / scorekeeping conflict",
+            "Safety / coercion / crisis conflict",
+            "Transparency versus amnesty conflict",
+            "Disclosure versus confession conflict",
+            "Mutual disclosure parity conflict",
+            "Trauma reactivation conflict",
+            "Decision-relevant facts conflict"
+          ]
+        },
+        "secondary_types": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Trust / disclosure conflict",
+              "Pursuer / defender loop",
+              "Accountability impasse",
+              "Repair after betrayal or perceived betrayal",
+              "Power / agency conflict",
+              "Future versus past conflict",
+              "Definition conflict",
+              "Attention / availability conflict",
+              "Money / labor / ambition conflict",
+              "Household / logistics conflict",
+              "Parenting / family system conflict",
+              "Boundary / third-party conflict",
+              "Meta-communication conflict",
+              "Chronic resentment / scorekeeping conflict",
+              "Safety / coercion / crisis conflict",
+              "Transparency versus amnesty conflict",
+              "Disclosure versus confession conflict",
+              "Mutual disclosure parity conflict",
+              "Trauma reactivation conflict",
+              "Decision-relevant facts conflict"
+            ]
+          }
+        },
+        "observable_basis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reset_repair_subtypes": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Transparency versus amnesty conflict",
+              "Disclosure versus confession conflict",
+              "Mutual disclosure parity conflict",
+              "Trauma reactivation conflict",
+              "Decision-relevant facts conflict"
+            ]
+          }
+        },
+        "reset_repair_triggered": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "loop_summary": {
+      "type": "object",
+      "required": [
+        "name",
+        "without_blame",
+        "repair_sequence"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": [
+            "pursuer-defender loop",
+            "mutual escalation loop",
+            "withdrawal-escalation loop",
+            "logistics-over-emotion loop",
+            "safety-first pause"
+          ]
+        },
+        "without_blame": {
+          "type": "string"
+        },
+        "repair_sequence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "regulate",
+              "name_the_issue",
+              "ask_one_question",
+              "give_one_direct_answer",
+              "reflect_what_was_heard",
+              "identify_one_repair_action",
+              "pause"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "private_coaching": {
+      "type": "object",
+      "required": [
+        "participant_a",
+        "participant_b"
+      ],
+      "properties": {
+        "participant_a": {
+          "type": "object",
+          "required": [
+            "private_read",
+            "strongest_point",
+            "risk_point",
+            "what_the_other_person_is_probably_hearing",
+            "stop_doing_next_20_minutes",
+            "next_best_message",
+            "individual_exercise",
+            "covey_habit_focus"
+          ],
+          "properties": {
+            "private_read": {
+              "type": "string"
+            },
+            "strongest_point": {
+              "type": "string"
+            },
+            "risk_point": {
+              "type": "string"
+            },
+            "what_the_other_person_is_probably_hearing": {
+              "type": "string"
+            },
+            "stop_doing_next_20_minutes": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": {
+                "type": "string"
+              }
+            },
+            "next_best_message": {
+              "type": "string",
+              "maxLength": 600
+            },
+            "individual_exercise": {
+              "type": "string"
+            },
+            "covey_habit_focus": {
+              "type": "object",
+              "required": [
+                "habit",
+                "practical_reason"
+              ],
+              "properties": {
+                "habit": {
+                  "type": "string",
+                  "enum": [
+                    "Habit 1: Be Proactive",
+                    "Habit 2: Begin With the End in Mind",
+                    "Habit 3: Put First Things First",
+                    "Habit 4: Think Win-Win",
+                    "Habit 5: Seek First to Understand, Then to Be Understood",
+                    "Habit 6: Synergize",
+                    "Habit 7: Sharpen the Saw"
+                  ]
+                },
+                "practical_reason": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "participant_b": {
+          "type": "object",
+          "required": [
+            "private_read",
+            "strongest_point",
+            "risk_point",
+            "what_the_other_person_is_probably_hearing",
+            "stop_doing_next_20_minutes",
+            "next_best_message",
+            "individual_exercise",
+            "covey_habit_focus"
+          ],
+          "properties": {
+            "private_read": {
+              "type": "string"
+            },
+            "strongest_point": {
+              "type": "string"
+            },
+            "risk_point": {
+              "type": "string"
+            },
+            "what_the_other_person_is_probably_hearing": {
+              "type": "string"
+            },
+            "stop_doing_next_20_minutes": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": {
+                "type": "string"
+              }
+            },
+            "next_best_message": {
+              "type": "string",
+              "maxLength": 600
+            },
+            "individual_exercise": {
+              "type": "string"
+            },
+            "covey_habit_focus": {
+              "type": "object",
+              "required": [
+                "habit",
+                "practical_reason"
+              ],
+              "properties": {
+                "habit": {
+                  "type": "string",
+                  "enum": [
+                    "Habit 1: Be Proactive",
+                    "Habit 2: Begin With the End in Mind",
+                    "Habit 3: Put First Things First",
+                    "Habit 4: Think Win-Win",
+                    "Habit 5: Seek First to Understand, Then to Be Understood",
+                    "Habit 6: Synergize",
+                    "Habit 7: Sharpen the Saw"
+                  ]
+                },
+                "practical_reason": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "covey_habit_map": {
+      "type": "object",
+      "required": [
+        "participant_a",
+        "participant_b",
+        "session_focus"
+      ],
+      "properties": {
+        "participant_a": {
+          "type": "string",
+          "enum": [
+            "Habit 1: Be Proactive",
+            "Habit 2: Begin With the End in Mind",
+            "Habit 3: Put First Things First",
+            "Habit 4: Think Win-Win",
+            "Habit 5: Seek First to Understand, Then to Be Understood",
+            "Habit 6: Synergize",
+            "Habit 7: Sharpen the Saw"
+          ]
+        },
+        "participant_b": {
+          "type": "string",
+          "enum": [
+            "Habit 1: Be Proactive",
+            "Habit 2: Begin With the End in Mind",
+            "Habit 3: Put First Things First",
+            "Habit 4: Think Win-Win",
+            "Habit 5: Seek First to Understand, Then to Be Understood",
+            "Habit 6: Synergize",
+            "Habit 7: Sharpen the Saw"
+          ]
+        },
+        "session_focus": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "daily_exercises": {
+      "type": "object",
+      "required": [
+        "participant_a",
+        "participant_b"
+      ],
+      "properties": {
+        "participant_a": {
+          "type": "string"
+        },
+        "participant_b": {
+          "type": "string"
+        },
+        "one_question_mirror": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "prompts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "memory_update_recommendations": {
+      "type": "object",
+      "required": [
+        "private_memory_a",
+        "private_memory_b",
+        "shared_memory",
+        "requires_consent",
+        "delete_or_revise_available"
+      ],
+      "properties": {
+        "private_memory_a": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "private_memory_b": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "shared_memory": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requires_consent": {
+          "type": "boolean"
+        },
+        "delete_or_revise_available": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "safety_guidance": {
+      "type": "object",
+      "properties": {
+        "outside_support_recommended": {
+          "type": "boolean"
+        },
+        "do_not_create_couples_repair_plan": {
+          "type": "boolean"
+        },
+        "guidance": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "mvp_product_recommendation": {
+      "type": "string"
+    },
+    "mutual_disclosure_parity": {
+      "type": "object",
+      "required": [
+        "module_triggered",
+        "detected_pattern",
+        "decision_relevant_questions",
+        "high_risk_details_to_avoid",
+        "mutuality_check",
+        "intervention_language"
+      ],
+      "properties": {
+        "module_triggered": {
+          "type": "boolean"
+        },
+        "trigger_phrases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "detected_pattern": {
+          "type": "string",
+          "enum": [
+            "not_applicable",
+            "legitimate_reset",
+            "avoidant_amnesty",
+            "confession_trap",
+            "mutual_disclosure_impasse",
+            "trauma_reactivation",
+            "decision_relevant_facts_conflict"
+          ]
+        },
+        "decision_relevant_questions": {
+          "type": "object",
+          "required": [
+            "participant_a",
+            "participant_b"
+          ],
+          "properties": {
+            "participant_a": {
+              "type": "string"
+            },
+            "participant_b": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "high_risk_details_to_avoid": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "graphic_sexual_details",
+              "comparative_details",
+              "punitive_repetition",
+              "pain_intensifying_details",
+              "already_answered_questions_without_new_material_evidence"
+            ]
+          }
+        },
+        "mutuality_check": {
+          "type": "object",
+          "required": [
+            "participant_a",
+            "participant_b"
+          ],
+          "properties": {
+            "participant_a": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "asks_same_transparency_provided",
+                  "seeks_repair_not_leverage",
+                  "specific_issue_identified",
+                  "willing_to_answer_same_category",
+                  "repair_over_moral_rank"
+                ]
+              }
+            },
+            "participant_b": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "asks_same_transparency_provided",
+                  "seeks_repair_not_leverage",
+                  "specific_issue_identified",
+                  "willing_to_answer_same_category",
+                  "repair_over_moral_rank"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "intervention_language": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Transparency is valid. Unlimited confession is not.",
+              "Moving forward is valid. Avoiding accountability is not.",
+              "Mutual repair requires mutual standards.",
+              "One question each. One answer each. Then pause."
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

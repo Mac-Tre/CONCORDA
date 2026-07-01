@@ -1,73 +1,188 @@
 {
-  "session_id": "sess_20260327_001",
+  "session_id": "sess_20260620_001",
   "participants": {
-    "partner_a": "Alex",
-    "partner_b": "Riley"
+    "partner_a": "Participant A",
+    "partner_b": "Participant B"
   },
-  "summary": {
-    "core_issue": "Uneven planning and follow-through for shared household tasks.",
-    "common_ground": [
-      "Both partners want less resentment.",
-      "Both partners want a clear weekly plan."
+  "inputs": {
+    "transcript": "A: You say we need to move forward, but I cannot trust you unless I know what happened. B: I do not want to rehash trauma or confess forever. You did it too.",
+    "speaker_labels": {
+      "A": "participant_a",
+      "B": "participant_b"
+    },
+    "private_memory_a": [
+      "A responds well to one-question prompts during trust discussions."
     ],
-    "open_questions": [
-      "What level of task detail is realistic for both schedules?"
+    "private_memory_b": [
+      "B responds better to specific questions than global claims."
+    ],
+    "shared_memory": [
+      "During escalation, use one question and one answer at a time."
+    ],
+    "safety_flags": []
+  },
+  "conflict_classification": {
+    "primary_type": "Trust / disclosure conflict",
+    "secondary_types": [
+      "Pursuer / defender loop",
+      "Mutual disclosure parity conflict",
+      "Decision-relevant facts conflict"
+    ],
+    "observable_basis": [
+      "A links moving forward to needing a specific trust answer.",
+      "B rejects open-ended confession and raises reciprocal trust injury.",
+      "Both speakers reference past injury without a bounded disclosure process."
+    ],
+    "reset_repair_triggered": true,
+    "reset_repair_subtypes": [
+      "Transparency versus amnesty conflict",
+      "Mutual disclosure parity conflict",
+      "Decision-relevant facts conflict"
     ]
   },
-  "scores": {
-    "listening": 72,
-    "accountability": 65,
-    "clarity": 78,
-    "mutual_respect": 81,
-    "long_term_alignment": 74,
-    "repair_readiness": 70,
-    "evidence_grounding": 61,
-    "relationship_health_score": 73
+  "loop_summary": {
+    "name": "pursuer-defender loop",
+    "without_blame": "One partner fears that moving forward will erase accountability; the other fears that disclosure will become unlimited prosecution. The repair path is one decision-relevant question each.",
+    "repair_sequence": [
+      "regulate",
+      "name_the_issue",
+      "ask_one_question",
+      "give_one_direct_answer",
+      "reflect_what_was_heard",
+      "identify_one_repair_action",
+      "pause"
+    ]
   },
-  "behavioral_patterns": {
-    "initiator_distribution": {
-      "partner_a": 1,
-      "partner_b": 0
+  "private_coaching": {
+    "participant_a": {
+      "private_read": "You appear to be trying to protect your ability to make informed choices.",
+      "strongest_point": "You are asking for clarity instead of guessing.",
+      "risk_point": "Global accusations make it harder to get the direct answer you want.",
+      "what_the_other_person_is_probably_hearing": "I am already guilty no matter how I answer.",
+      "stop_doing_next_20_minutes": [
+        "Do not stack multiple questions.",
+        "Do not use always/never language."
+      ],
+      "next_best_message": "I agree that we should move forward. I also need one specific issue addressed so the reset is real. My question is: is there any current contact I need to know about? I am asking for a direct answer, not a full rehash. I also understand that mutual transparency has to apply to both of us.",
+      "individual_exercise": "Use the One Question Mirror: name one decision-relevant question, why it matters, the category of transparency, your answer to the same category, one boundary, and one behavior you will change.",
+      "covey_habit_focus": {
+        "habit": "Habit 5: Seek First to Understand, Then to Be Understood",
+        "practical_reason": "A narrow question improves the chance of receiving an answer before debating meaning."
+      }
     },
-    "talk_time_distribution": {
-      "partner_a_pct": 57,
-      "partner_b_pct": 43
-    },
-    "interruption_distribution": {
-      "partner_a": 2,
-      "partner_b": 1
-    },
-    "repair_attempts": {
-      "partner_a": 2,
-      "partner_b": 3,
-      "accepted_ratio": 0.8
-    },
-    "defensiveness_markers": {
-      "partner_a": 2,
-      "partner_b": 3
+    "participant_b": {
+      "private_read": "You appear to be trying to avoid being boxed into a vague accusation.",
+      "strongest_point": "You are asking for enough specificity to answer fairly.",
+      "risk_point": "Explaining why the accusation is unfair can sound like avoiding the question.",
+      "what_the_other_person_is_probably_hearing": "You are refusing to answer unless the question is perfect.",
+      "stop_doing_next_20_minutes": [
+        "Do not counterattack the wording first.",
+        "Do not answer multiple implied accusations."
+      ],
+      "next_best_message": "I do not want us to relive trauma or turn this into blame shifting. I am willing to answer specific, decision-relevant questions in a structured way. I also need transparency to be mutual, not one-directional. Let\u2019s each ask one specific question and answer it directly.",
+      "individual_exercise": "Use the One Question Mirror: name one decision-relevant question, why it matters, the category of transparency, your answer to the same category, one boundary, and one behavior you will change.",
+      "covey_habit_focus": {
+        "habit": "Habit 1: Be Proactive",
+        "practical_reason": "Choosing a direct response interrupts defensiveness and keeps the exchange answerable."
+      }
     }
   },
+  "covey_habit_map": {
+    "participant_a": "Habit 5: Seek First to Understand, Then to Be Understood",
+    "participant_b": "Habit 1: Be Proactive",
+    "session_focus": "Before reconciliation or future planning, define one decision-relevant question each and answer without graphic or punitive details."
+  },
+  "daily_exercises": {
+    "participant_a": "One-question format practice.",
+    "participant_b": "Direct-answer format practice.",
+    "one_question_mirror": {
+      "enabled": true,
+      "prompts": [
+        "The one question I want answered is: ____.",
+        "Why this question matters for repair is: ____.",
+        "The category of transparency I am asking for is: ____.",
+        "My answer to the same category of question would be: ____.",
+        "The boundary I need going forward is: ____.",
+        "The behavior I will change is: ____."
+      ]
+    }
+  },
+  "memory_update_recommendations": {
+    "private_memory_a": [
+      "A requests transparency but needs help converting it into one specific, decision-relevant question."
+    ],
+    "private_memory_b": [
+      "B avoids trust discussions when they become global or punitive and responds better to bounded disclosure."
+    ],
+    "shared_memory": [
+      "During trust repair, each person gets one decision-relevant question per session.",
+      "Transparency must be mutual and bounded.",
+      "No graphic details unless both agree they are necessary."
+    ],
+    "requires_consent": true,
+    "delete_or_revise_available": true
+  },
   "risk_assessment": {
-    "risk_level": "low",
+    "risk_level": "none",
     "flags": [],
     "safety_mode_triggered": false
   },
   "recommendations": {
     "immediate_steps": [
-      "Use 10-minute fairness-timed turns to restate needs before proposing solutions.",
-      "Commit to one shared calendar block for planning tasks on Sunday evenings."
+      "Pause for 20 minutes if either person escalates.",
+      "Return with one question and one answer only."
     ],
     "reflection_prompts": [
-      "What specific action would help you feel supported this week?",
-      "What do you appreciate about your partner's effort so far?"
+      "What is the one answer I need or can give right now?"
     ],
-    "next_session_goal": "Reduce interruptions by 30% while preserving clarity.",
-    "confidence": 0.74
+    "next_session_goal": "Complete the one-question, one-answer repair sequence without expanding into future planning.",
+    "confidence": 0.72
   },
   "iap_signals": {
-    "high_conflict_frequency": true,
+    "high_conflict_frequency": false,
     "needs_guided_templates": true,
     "needs_repair_plan_depth": false,
-    "analytics_engagement_level": "high"
+    "analytics_engagement_level": "medium"
+  },
+  "mvp_product_recommendation": "Build a Mutuality Check before any transparency message is sent, prompting users to convert confession demands or fresh-start avoidance into one bounded, reciprocal, decision-relevant question.",
+  "mutual_disclosure_parity": {
+    "module_triggered": true,
+    "trigger_phrases": [
+      "move forward",
+      "I cannot trust you",
+      "what happened",
+      "confess",
+      "rehash trauma",
+      "You did it too"
+    ],
+    "detected_pattern": "mutual_disclosure_impasse",
+    "decision_relevant_questions": {
+      "participant_a": "Is there any current contact I need to know about?",
+      "participant_b": "What same category of transparency are you willing to provide about your past conduct?"
+    },
+    "high_risk_details_to_avoid": [
+      "graphic_sexual_details",
+      "comparative_details",
+      "punitive_repetition",
+      "pain_intensifying_details"
+    ],
+    "mutuality_check": {
+      "participant_a": [
+        "seeks_repair_not_leverage",
+        "specific_issue_identified",
+        "willing_to_answer_same_category"
+      ],
+      "participant_b": [
+        "seeks_repair_not_leverage",
+        "specific_issue_identified",
+        "willing_to_answer_same_category"
+      ]
+    },
+    "intervention_language": [
+      "Transparency is valid. Unlimited confession is not.",
+      "Moving forward is valid. Avoiding accountability is not.",
+      "Mutual repair requires mutual standards.",
+      "One question each. One answer each. Then pause."
+    ]
   }
 }
