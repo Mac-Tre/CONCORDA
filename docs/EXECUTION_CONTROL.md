@@ -5,7 +5,7 @@ Repo of record: Mac-Tre/CONCORDA. Prose is a different product/repository.
 
 ## Approved direction / live scope
 - The consumer-first Rose Mirror MVP is the current product focus, not a professional/clinician-facing product.
-- Foundation PR #3 contains privacy and safety-first AGENTS.md, schemas, UX/PRD material and synthetic fixtures; it is NOT merged into main.
+- Foundation PR #3 is merged into main (commit f81486b409c9dda37da6a74f6e2fe38ded4947a5); the foundation supplies AGENTS.md, schemas, PRD, UX and synthetic fixtures. Production and independent domain validation remain incomplete.
 - PR #5 contains an experimental synthetic-only Rose Mirror report demo, stacked on PR #3. Tests and execution are not independently verified. No real-data intake, live AI inference, deployment, auth or payments are established.
 - PR #4 Couples Couch is a distinct proposal and must not be silently mixed into the Rose Mirror path.
 - Preserve privacy and consent boundaries. Do not claim a model can reliably identify abuse, make a clinical diagnosis, infer intent, or safely formulate exit strategies without explicitly reviewed safety evidence and product scope.
@@ -19,7 +19,7 @@ Repo of record: Mac-Tre/CONCORDA. Prose is a different product/repository.
 - Develop in narrow branches; open draft PRs. Do not merge, deploy, add user-data collection or network paths without product-owner authorization.
 
 ## Gate sequence
-G0 Foundation: reconcile PRs #2 and #3; resolve policy/schema conflicts; verify AGENTS and privacy constraints on the intended base.
+G0 Foundation: PR #3 merged; keep unmerged PR #2's conflicting policy/schema changes isolated and reconcile only if needed for an approved slice. Verify AGENTS.md and privacy constraints on the intended base.
 G1 Synthetic executable demonstration: prove the PR #5 tests run (schema validation, HTML escaping, consent and safety behavior, real-data rejection) against reproducible fixtures. A green test is demonstration proof only, not clinical safety validation.
 G2 Product prototype: implement a usable consumer Rose Mirror journey, minimal on-device/browser-local UI, consent and clear uncertainty. No production real-user analysis before G1 and dedicated safety/privacy review.
 G3 Controlled pilot: independent threat-model/security and misuse evaluation; usability and content review; documented retention, deletion, safeguards, escalation, and rollback controls. Explicit product-owner acceptance required.
