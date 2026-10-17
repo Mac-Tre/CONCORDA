@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://concorda.app/schemas/relationship-intelligence-profile.schema.json",
+  "title": "RelationshipIntelligenceProfile",
+  "description": "Persistent structured coaching profile without raw conversation memory.",
+  "type": "object",
+  "required": [
+    "profile_id",
+    "relationship_id",
+    "partner_profiles",
+    "trend_metrics",
+    "storage_policy"
+  ],
+  "properties": {
+    "profile_id": { "type": "string" },
+    "relationship_id": { "type": "string" },
+    "partner_profiles": {
+      "type": "object",
+      "required": ["partner_a", "partner_b"],
+      "properties": {
+        "partner_a": { "$ref": "#/$defs/PartnerProfile" },
+        "partner_b": { "$ref": "#/$defs/PartnerProfile" }
+      },
+      "additionalProperties": false
+    },
+    "trend_metrics": {
+      "type": "object",
+      "required": ["recovery_trend", "consistency_trend", "alignment_trend"],
+      "properties": {
+        "recovery_trend": { "type": "number", "minimum": -1, "maximum": 1 },
+        "consistency_trend": { "type": "number", "minimum": -1, "maximum": 1 },
+        "alignment_trend": { "type": "number", "minimum": -1, "maximum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "storage_policy": {
+      "type": "object",
+      "required": ["raw_transcript_persistence", "private_text_reuse_in_couple_mode"],
+      "properties": {
+        "raw_transcript_persistence": { "type": "string", "enum": ["ephemeral"] },
+        "private_text_reuse_in_couple_mode": { "type": "string", "enum": ["forbidden"] }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "PartnerProfile": {
+      "type": "object",
+      "required": ["preferred_coaching_style", "trigger_patterns", "helpful_phrases"],
+      "properties": {
+        "preferred_coaching_style": {
+          "type": "string",
+          "enum": ["direct", "gentle", "structured", "reflective", "mixed"]
+        },
+        "trigger_patterns": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "helpful_phrases": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "adherence_rate": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

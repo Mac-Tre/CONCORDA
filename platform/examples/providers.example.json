@@ -1,0 +1,68 @@
+{
+  "connections": [
+    {
+      "connection_id": "conn_google_001",
+      "tenant_id": "tenant_demo",
+      "provider": "google",
+      "status": "active",
+      "auth": {
+        "method": "oauth2",
+        "token_ref": "vault://prod/google/access_token",
+        "refresh_token_ref": "vault://prod/google/refresh_token",
+        "token_expires_at": "2026-03-27T23:59:59Z"
+      },
+      "scopes": [
+        "openid",
+        "email",
+        "https://www.googleapis.com/auth/calendar.readonly",
+        "https://www.googleapis.com/auth/drive.readonly"
+      ],
+      "created_at": "2026-03-27T10:00:00Z",
+      "updated_at": "2026-03-27T10:00:00Z"
+    },
+    {
+      "connection_id": "conn_openai_001",
+      "tenant_id": "tenant_demo",
+      "provider": "openai",
+      "status": "active",
+      "auth": {
+        "method": "api_key",
+        "token_ref": "vault://prod/openai/api_key",
+        "token_expires_at": "2030-01-01T00:00:00Z"
+      },
+      "scopes": ["responses", "embeddings", "tool_calls"],
+      "created_at": "2026-03-27T10:00:00Z",
+      "updated_at": "2026-03-27T10:00:00Z"
+    }
+  ],
+  "capability_manifest": {
+    "manifest_version": "1.0.0",
+    "runtime": {
+      "model_family": "openai-gpt",
+      "supports_tool_calls": true,
+      "supports_multimodal": true,
+      "supports_streaming": true,
+      "supports_reasoning": true
+    },
+    "capabilities": {
+      "summarization": true,
+      "classification": true,
+      "entity_extraction": true,
+      "sentiment_inference": true,
+      "safety_risk_detection": true,
+      "recommendation_generation": true,
+      "translation": true,
+      "speech_to_text": true,
+      "vision_understanding": true
+    },
+    "tools": [
+      { "name": "calendar_sync", "enabled": true, "provider": "google", "permissions": ["calendar.read"] },
+      { "name": "document_ingest", "enabled": true, "provider": "adobe", "permissions": ["pdf.read"] }
+    ],
+    "safety": {
+      "policy_version": "corda-1.1",
+      "confidentiality_enforced": true,
+      "abuse_escalation_enabled": true
+    }
+  }
+}
