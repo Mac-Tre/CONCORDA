@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://concorda.app/schemas/conversation_artifact.schema.json",
+  "title": "Conversation Artifact",
+  "description": "Raw conversation input only. Must not contain model conclusions, conflict classification, memory recommendations, or report text.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_id", "artifact_type", "participants", "messages", "metadata", "redaction_status", "source_type", "created_at"],
+  "properties": {
+    "artifact_id": { "type": "string" },
+    "artifact_type": { "type": "string", "enum": ["text_transcript", "screenshot_transcript", "manual_entry", "redacted_fixture"] },
+    "participants": { "type": "array", "minItems": 1, "items": { "type": "object", "additionalProperties": false, "required": ["participant_id", "display_label"], "properties": { "participant_id": { "type": "string" }, "display_label": { "type": "string" }, "role": { "type": "string", "enum": ["requesting_participant", "other_participant", "unknown"] } } } },
+    "messages": { "type": "array", "items": { "$ref": "#/$defs/message" } },
+    "metadata": { "type": "object", "additionalProperties": true },
+    "redaction_status": { "type": "string", "enum": ["unredacted", "partially_redacted", "redacted", "synthetic_redacted"] },
+    "source_type": { "type": "string", "enum": ["user_paste", "upload", "manual_fixture", "synthetic_fixture"] },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "$defs": {
+    "message": { "type": "object", "additionalProperties": false, "required": ["message_id", "participant_id", "speaker_label", "text", "sent_at", "sequence", "attachments", "confidence", "raw_source_ref"], "properties": { "message_id": { "type": "string" }, "participant_id": { "type": "string" }, "speaker_label": { "type": "string" }, "text": { "type": "string" }, "sent_at": { "type": ["string", "null"], "format": "date-time" }, "sequence": { "type": "integer", "minimum": 0 }, "attachments": { "type": "array", "items": { "type": "object", "additionalProperties": true } }, "confidence": { "type": "number", "minimum": 0, "maximum": 1 }, "raw_source_ref": { "type": ["string", "null"] } } }
+  }
+}
