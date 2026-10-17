@@ -5,7 +5,7 @@ This is a **deterministic preview renderer**, not a working live AI model or a p
 ## Run
 
 ```sh
-npm install
+npm install --ignore-scripts
 npm test
 npm run validate:fixtures
 npm run demo:rose-mirror
@@ -24,4 +24,4 @@ Open `demo/rose-mirror-preview.html` locally to review the report.
 
 ## Integration dependencies
 
-The Rose Mirror foundation branch is the base of this work. PR #2 (Corda/platform contracts) and PR #4 (Couples Couch) touch overlapping files and should be reconciled explicitly rather than merged automatically.
+The Rose Mirror foundation is now on main (merged PR #3). This executable fixture-only demo is built against main; development quality gates were integrated via PR #7. PR #2 (Corda/platform contracts) and PR #4 (Couples Couch) touch overlapping files and should be reconciled explicitly rather than merged automatically.
