@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "project": "concorda",
+  "entries": [
+    {
+      "id": "CON-PROD-001",
+      "decision": "Concorda and Prose are separate repositories; Concorda focuses on consumer-first Rose Mirror MVP.",
+      "approval_status": "APPROVED",
+      "implementation_status": "IN_PROGRESS",
+      "decision_ref": "https://github.com/Mac-Tre/CONCORDA/pull/3",
+      "verification_refs": []
+    },
+    {
+      "id": "CON-FOUND-002",
+      "decision": "Use the privacy/safety-first foundation package in PR #3 as the architectural base pending review and merge.",
+      "approval_status": "APPROVED",
+      "implementation_status": "IN_PROGRESS",
+      "decision_ref": "https://github.com/Mac-Tre/CONCORDA/pull/3",
+      "verification_refs": []
+    },
+    {
+      "id": "CON-DEMO-003",
+      "decision": "Create a deterministic synthetic-data-only Rose Mirror report demo; do not describe it as live inference or a released product.",
+      "approval_status": "APPROVED",
+      "implementation_status": "IN_PROGRESS",
+      "decision_ref": "https://github.com/Mac-Tre/CONCORDA/pull/5",
+      "verification_refs": []
+    },
+    {
+      "id": "CON-GATE-004",
+      "decision": "Require verifiable consent, privacy, safety and independent review evidence before presenting an experience as pilot-ready.",
+      "approval_status": "PROPOSED",
+      "implementation_status": "IN_PROGRESS",
+      "decision_ref": "https://github.com/Mac-Tre/CONCORDA/pull/3",
+      "verification_refs": []
+    },
+    {
+      "id": "CON-PRO-005",
+      "decision": "Professional clinician-facing product functionality is deferred; it is not part of the consumer-first Rose Mirror MVP.",
+      "approval_status": "APPROVED",
+      "implementation_status": "UNVERIFIED",
+      "decision_ref": "https://github.com/Mac-Tre/CONCORDA/pull/3",
+      "verification_refs": []
+    }
+  ]
+}
