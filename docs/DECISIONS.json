@@ -20,11 +20,14 @@
     },
     {
       "id": "CON-DEMO-003",
-      "decision": "Create a deterministic synthetic-data-only Rose Mirror report demo; do not describe it as live inference or a released product.",
+      "decision": "Deliver an offline, deterministic, synthetic-fixture-only Rose Mirror HTML/JSON preview with schema, safety gating, consent and HTML escaping checks. This is not a real-user product or independently validated relationship safety analysis.",
       "approval_status": "APPROVED",
-      "implementation_status": "IN_PROGRESS",
+      "implementation_status": "VERIFIED",
       "decision_ref": "https://github.com/Mac-Tre/CONCORDA/pull/5",
-      "verification_refs": []
+      "verification_refs": [
+        "https://github.com/Mac-Tre/CONCORDA/pull/8",
+        "https://github.com/Mac-Tre/CONCORDA/commit/89c8923ba5793a4b5964a7268b7bc69b437d685a"
+      ]
     },
     {
       "id": "CON-GATE-004",
