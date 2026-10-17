@@ -1,0 +1,55 @@
+name: Rose Mirror synthetic demo verification
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test-contracts:
+    name: Synthetic contract and security regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - run: npm test
+  validate-fixtures:
+    name: Schema and fixture consistency
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - run: npm run validate:fixtures
+  render-preview:
+    name: Offline deterministic preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - run: npm run demo:rose-mirror
+      - name: Check local output and explicit synthetic disclosure
+        run: |
+          node --input-type=module -e '
+            import fs from "node:fs";
+            const html = fs.readFileSync("demo/rose-mirror-preview.html","utf8");
+            const data = JSON.parse(fs.readFileSync("demo/rose-mirror-preview.json","utf8"));
+            if(!html.includes("Synthetic fixture demo") || !html.includes("Not a live AI analysis") || !data.participant_id) {
+              throw Error("Offline output integrity or safety disclosure failed");
+            }
+            console.log("Synthetic preview generated with disclosure");
+          '
+  mechanical-quorum:
+    name: Three synthetic checks agree
+    needs: [test-contracts, validate-fixtures, render-preview]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Offline demo passed three automated jobs; no clinical/safety, privacy red-team, or real-world product validation claimed."

@@ -1,0 +1,12 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import { verifyDemo, renderReport } from "../scripts/rose-mirror-demo.mjs";
+const load=name=>JSON.parse(fs.readFileSync(new URL("../fixtures/"+name,import.meta.url)));
+const input=()=>load("trial_run_gray_input.redacted.json");
+const result=()=>load("trial_run_gray_expected_output.json");
+test("valid synthetic fixture passes schema and safety contract",()=>assert.equal(verifyDemo(input(),result()),true));
+test("real user artifact rejected in demo",()=>{let i=input();i.source_type="user_paste";assert.throws(()=>verifyDemo(i,result()),/synthetic/);});
+test("memory cannot be approved without consent",()=>{let r=result();r.rose_mirror_report.memory_recommendations[0].approved=true;assert.throws(()=>verifyDemo(input(),r),/Memory/);});
+test("safety flag cannot produce repair coaching",()=>{let r=result();r.conflict_classification.safety_flags=["coercion"];assert.throws(()=>verifyDemo(input(),r),/Safety/);});
+test("HTML rendering escapes injected markup",()=>{let r=result().rose_mirror_report;r.private_read="<script>alert(1)</script>";assert.doesNotMatch(renderReport(r),/<script>/);});
