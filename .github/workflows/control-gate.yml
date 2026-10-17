@@ -1,17 +1,52 @@
-name: Concorda decision and release gate
+name: Concorda multi-verifier development gate
 on:
   pull_request:
   push:
     branches: [main]
+permissions:
+  contents: read
 jobs:
-  control-gate:
+  requirements:
+    name: Product decision integrity
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m tools.demo_gate --register docs/DECISIONS.json
+      - run: test -f AGENTS.md
+  policy-tests:
+    name: Consent and safety gate regression
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - run: python -m unittest discover -s tests -p 'test_demo_gate.py' -v
-      - run: python -m tools.demo_gate --register docs/DECISIONS.json
+  fixture-integrity:
+    name: JSON fixture and schema syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reject malformed foundation JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths = sorted(list(Path("fixtures").rglob("*.json")) + list(Path("schemas").rglob("*.json")))
+          assert paths, "Expected synthetic fixtures and schemas"
+          for path in paths:
+              json.loads(path.read_text(encoding="utf-8"))
+          print(f"Parsed {len(paths)} fixture and schema files")
+          PY
+  mechanical-quorum:
+    name: Required automated checks agree
+    needs: [requirements, policy-tests, fixture-integrity]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Three distinct automated jobs passed for this exact checkout. Not clinical validation, abuse detection validation, privacy audit, or deployment approval."
