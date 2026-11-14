@@ -38,7 +38,15 @@ Use existing `schemas/conversation_artifact`, `schemas/conflict_classification`,
 | B. User-controlled **in-session** recording, clearly indicated, with jurisdiction-aware consent flow | Better capture fidelity where lawful and welcomed | High | Third-party recording consent, security, coercion, retention | Stop recording, delete session, revoke access |
 | C. Passive or background ambient capture | Could collect more context but is not needed for stated MVP | Very high | Surveillance, legal compliance, partner safety, app platform policies | Do **not** pursue without an entirely separate design and legal gate |
 
-**Default until G1:** A, because it is already embedded in the foundation, but this note does not make a new capture-mode decision for the owner.
+**Before G1:** Existing synthetic/demo artifact-input documentation is not an owner selection for future collection or capture. No new input modality is approved; compare alternatives without implementing any of them.
+
+### Independent evidence and consent caveats (2026-11-13)
+
+- Apple's documented microphone permission mechanism establishes an OS-level requirement, not whether Co–Star requests or uses that permission. No app-specific microphone behavior was independently established. See https://developer.apple.com/documentation/AVFoundation/AVCaptureDevice/authorizationStatus(for:).
+- A device user's permission is not equivalent to every recorded or quoted person's consent. Jurisdiction-specific recording laws, participant notice, coercion risk, and third-party rights require separate review before any audio design is approved.
+- User-submitted text and screenshots also may contain third-party confidential information. Treat source provenance, authority to submit, redaction, and deletion as unresolved design requirements, not as solved by an upload button.
+- Synthetic negative fixtures should cover forged consent, revoked consent, shared-device visibility, an abusive partner submitting selectively edited evidence, and attempts to turn a private assessment into a partner-facing accusation.
+- Privacy of a generic notification cannot be assumed merely because its text omits sensitive content; timing, app identity, and repeated alerts may reveal sensitive activity. G3 must consider a no-notification option.
 
 ## 4. Independent test and review requirements
 
